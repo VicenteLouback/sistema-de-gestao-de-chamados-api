@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SistemaGestaoChamados.API/SistemaGestaoChamados.API.csproj" />
+    <Project Path="src/SistemaGestaoChamados.Application/SistemaGestaoChamados.Application.csproj" />
+    <Project Path="src/SistemaGestaoChamados.Domain/SistemaGestaoChamados.Domain.csproj" />
+    <Project Path="src/SistemaGestaoChamados.Infrastructure/SistemaGestaoChamados.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SistemaGestaoChamados.Tests/SistemaGestaoChamados.Tests.csproj" />
+  </Folder>
+</Solution>
