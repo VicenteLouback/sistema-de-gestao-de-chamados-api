@@ -1,23 +1,35 @@
+using Microsoft.EntityFrameworkCore;
+using SistemaGestaoChamados.Infrastructure.Persistence.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Adiciona os Controllers da API.
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+// Configura o Entity Framework Core com SQL Server.
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    var connectionString = builder.Configuration
+        .GetConnectionString("DefaultConnection");
+
+    options.UseSqlServer(connectionString);
+});
+
+// Configuração do OpenAPI.
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuração do OpenAPI apenas no ambiente de desenvolvimento.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
 
+// Redireciona HTTP para HTTPS.
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
+// Mapeia os Controllers.
 app.MapControllers();
 
 app.Run();
