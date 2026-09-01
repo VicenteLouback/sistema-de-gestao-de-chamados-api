@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\SistemaGestaoChamados.Application\SistemaGestaoChamados.Application.csproj" />
     <ProjectReference Include="..\SistemaGestaoChamados.Domain\SistemaGestaoChamados.Domain.csproj" />
   </ItemGroup>
 

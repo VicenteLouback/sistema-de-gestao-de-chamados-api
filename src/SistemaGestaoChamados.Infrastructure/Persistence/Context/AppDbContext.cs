@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaGestaoChamados.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace SistemaGestaoChamados.Infrastructure.Persistence.Context
 {
@@ -22,13 +20,24 @@ namespace SistemaGestaoChamados.Infrastructure.Persistence.Context
         /// Representa a tabela de usuários no banco de dados.
         /// </summary>
         public DbSet<Usuario> Usuarios => Set<Usuario>();
+        public DbSet<Chamado> Chamados => Set<Chamado>();
+        public DbSet<Categoria> Categorias => Set<Categoria>();
+        public DbSet<Perfil> Perfis => Set<Perfil>();
+        public DbSet<InteracaoChamado> InteracoesChamados => Set<InteracaoChamado>();
+        public DbSet<HistoricoChamado> HistoricosChamados => Set<HistoricoChamado>();
+        public DbSet<Permissao> Permissoes => Set<Permissao>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfigurationsFromAssembly(
-                typeof(AppDbContext).Assembly);
+            modelBuilder.Entity<Chamado>().ToTable("Chamado");
+            modelBuilder.Entity<Usuario>().ToTable("Usuario");
+            modelBuilder.Entity<Categoria>().ToTable("Categoria");
+            modelBuilder.Entity<Perfil>().ToTable("Perfil");
+            modelBuilder.Entity<InteracaoChamado>().ToTable("InteracaoChamado");
+            modelBuilder.Entity<HistoricoChamado>().ToTable("HistoricoChamado");
+            modelBuilder.Entity<Permissao>().ToTable("Permissao");
         }
     }
 }
