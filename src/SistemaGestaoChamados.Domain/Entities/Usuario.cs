@@ -10,18 +10,6 @@ public class Usuario
     public int Id { get; set; }
     public string Nome { get; private set; } = string.Empty;
     public string Email { get; private set; } = string.Empty;
-    public DateTime DataCadastro { get; private set; }
-    public Status Status { get; private set; }
-
-    // Construtor utilizado pelo Entity Framework Core.
-    private Usuario()
-    {
-    }
-
-    public Usuario(string nome, string email)
-    {
-        Nome = nome;
-        Email = email;
-        DataCadastro = DateTime.UtcNow;
-    }
+    public string SenhaHash { get; private set; } = string.Empty;
+    public int PerffilId { get; private set; }
 }

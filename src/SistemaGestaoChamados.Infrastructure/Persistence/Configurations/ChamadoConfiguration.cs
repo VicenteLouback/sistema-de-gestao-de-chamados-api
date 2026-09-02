@@ -18,10 +18,7 @@ namespace SistemaGestaoChamados.Infrastructure.Persistence.Configurations
             builder.Property(x => x.Prioridade).IsRequired();
             builder.Property(x => x.Status).IsRequired();
             builder.Property(x => x.UsuarioId).IsRequired();
-            builder.Property(x => x.AtendenteId);
             builder.Property(x => x.DataAbertura).IsRequired();
-            builder.Property(x => x.DataAtualizacao);
-            builder.Property(x => x.DataResolucao);
             builder.Property(x => x.DataFechamento);
         }
     }
