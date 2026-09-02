@@ -19,7 +19,8 @@ namespace SistemaGestaoChamados.Infrastructure.Persistence.Context
         /// <summary>
         /// Representa a tabela de usuários no banco de dados.
         /// </summary>
-        public DbSet<Usuario> Usuarios => Set<Usuario>();
+        public DbSet<Usuario> Usuario => Set<Usuario>();
+        public DbSet<Usuarios> Usuarios => Set<Usuarios>();
         public DbSet<Chamado> Chamados => Set<Chamado>();
         public DbSet<Categoria> Categorias => Set<Categoria>();
         public DbSet<Perfil> Perfis => Set<Perfil>();
@@ -38,6 +39,7 @@ namespace SistemaGestaoChamados.Infrastructure.Persistence.Context
             modelBuilder.Entity<InteracaoChamado>().ToTable("InteracaoChamado");
             modelBuilder.Entity<HistoricoChamado>().ToTable("HistoricoChamado");
             modelBuilder.Entity<Permissao>().ToTable("Permissao");
+            modelBuilder.Entity<Usuarios>().ToTable("Usuarios");
         }
     }
 }
