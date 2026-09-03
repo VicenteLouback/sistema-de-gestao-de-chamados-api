@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SistemaGestaoChamados.Application.Dtos
+namespace SistemaGestaoChamados.Application.Dtos.Chamada
 {
     public class AtualizarChamadoDto
     {

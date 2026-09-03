@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SistemaGestaoChamados.Application.Dtos;
+using SistemaGestaoChamados.Application.Dtos.Chamada;
 using SistemaGestaoChamados.Application.Interfaces;
 using SistemaGestaoChamados.Domain.Entities;
 using SistemaGestaoChamados.Domain.Enums;
@@ -29,6 +29,7 @@ public class ChamadoService : IChamadoService
                 Prioridade = dto.Prioridade,
                 Status = StatusChamado.Novo,
                 UsuarioId = dto.UsuarioId,
+                ResponsavelId = null,
                 DataAbertura = DateTime.UtcNow,
             };
 

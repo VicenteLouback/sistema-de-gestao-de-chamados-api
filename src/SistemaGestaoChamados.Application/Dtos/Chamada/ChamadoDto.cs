@@ -1,6 +1,4 @@
-﻿
-
-namespace SistemaGestaoChamados.Application.Dtos
+﻿namespace SistemaGestaoChamados.Application.Dtos.Chamada
 {
     public class ChamadoDto
     {

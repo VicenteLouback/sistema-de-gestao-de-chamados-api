@@ -1,7 +1,4 @@
 ﻿using SistemaGestaoChamados.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SistemaGestaoChamados.Domain.Entities
 {
@@ -10,16 +7,22 @@ namespace SistemaGestaoChamados.Domain.Entities
         public int Id { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
-        public int CategoriaId { get; set; }
         public PrioridadeChamado Prioridade { get; set; }
         public StatusChamado Status { get; set; }
-        public int UsuarioId { get; set; }
-        public Usuario? Usuario { get; set; }
-        public Guid? AtendenteId { get; set; }
-        public Usuario? Atendente { get; set; }
-        public DateTime DataAbertura { get; set; }
+
+        public DateTime DataAbertura { get; set; } = DateTime.UtcNow;
         public DateTime? DataAtualizacao { get; set; }
         public DateTime? DataResolucao { get; set; }
         public DateTime? DataFechamento { get; set; }
+
+        public int CategoriaId { get; set; }
+        public Categoria? Categoria { get; set; }
+
+        public int UsuarioId { get; set; }
+        public Usuario? Usuario { get; set; }
+
+        public int? ResponsavelId { get; set; }
+        public Usuario? Responsavel { get; set; }
     }
 }
+

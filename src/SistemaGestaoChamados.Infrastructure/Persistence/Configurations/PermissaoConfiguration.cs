@@ -2,21 +2,28 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SistemaGestaoChamados.Domain.Entities;
 
+namespace SistemaGestaoChamados.Infrastructure.Persistence.Configurations;
 
-namespace SistemaGestaoChamados.Infrastructure.Persistence.Configurations
+public class PermissaoConfiguration : IEntityTypeConfiguration<Permissao>
 {
-    public class PermissaoConfiguration : IEntityTypeConfiguration<Permissao>
+    public void Configure(EntityTypeBuilder<Permissao> builder)
     {
-        public void Configure(EntityTypeBuilder<Permissao> builder)
-        {
-            builder.ToTable("Permissao");
+        builder.ToTable("Permissao");
 
-            builder.HasKey(u => u.Id);
+        builder.HasKey(p => p.Id);
 
-            builder.Property(u => u.Nome)
-                .HasColumnName("Nome")
-                .IsRequired()
-                .HasMaxLength(100);
-        }
+        builder.Property(p => p.Nome)
+            .IsRequired()
+            .HasMaxLength(100);
+
+        builder.Property(p => p.Descricao)
+            .HasMaxLength(255)
+            .IsRequired(false);
+
+        builder.Property(p => p.Modulo)
+            .IsRequired()
+            .HasMaxLength(100);
+
+        builder.Property(p => p.Ativo).IsRequired();
     }
 }

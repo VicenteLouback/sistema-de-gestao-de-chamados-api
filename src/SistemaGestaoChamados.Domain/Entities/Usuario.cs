@@ -1,15 +1,17 @@
-﻿using SistemaGestaoChamados.Domain.Enums;
-
-namespace SistemaGestaoChamados.Domain.Entities;
-
-/// <summary>
-/// Representa um usuário do sistema.
-/// </summary>
-public class Usuario
+﻿namespace SistemaGestaoChamados.Domain.Entities
 {
-    public int Id { get; set; }
-    public string Nome { get; private set; } = string.Empty;
-    public string Email { get; private set; } = string.Empty;
-    public string SenhaHash { get; private set; } = string.Empty;
-    public int PerffilId { get; private set; }
+    public class Usuario
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string SenhaHash { get; set; } = string.Empty;
+        public bool Ativo { get; set; } = true;
+        public DateTime DataCadastro { get; set; } = DateTime.UtcNow;
+        public DateTime? DataAtualizacao { get; set; }
+
+        public int PerfilId { get; set; }
+        public Perfil? Perfil { get; set; }
+    }
 }
+

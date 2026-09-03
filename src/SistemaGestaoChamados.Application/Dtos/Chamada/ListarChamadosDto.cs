@@ -2,7 +2,7 @@
 using SistemaGestaoChamados.Domain.Enums;
 
 
-namespace SistemaGestaoChamados.Application.Dtos
+namespace SistemaGestaoChamados.Application.Dtos.Chamada
 {
     public class ListarChamadosDto
     {

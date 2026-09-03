@@ -1,4 +1,4 @@
-﻿using SistemaGestaoChamados.Application.Dtos;
+﻿using SistemaGestaoChamados.Application.Dtos.Chamada;
 
 
 namespace SistemaGestaoChamados.Application.Interfaces

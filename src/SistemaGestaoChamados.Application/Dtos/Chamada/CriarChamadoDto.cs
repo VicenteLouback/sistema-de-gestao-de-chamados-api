@@ -1,8 +1,7 @@
-﻿
-using SistemaGestaoChamados.Domain.Entities;
+﻿using SistemaGestaoChamados.Domain.Entities;
 using SistemaGestaoChamados.Domain.Enums;
 
-namespace SistemaGestaoChamados.Application.Dtos
+namespace SistemaGestaoChamados.Application.Dtos.Chamada
 {
     public class CriarChamadoDto
     {
