@@ -28,9 +28,9 @@ public class ChamadoService : IChamadoService
                 CategoriaId = dto.CategoriaId,
                 Prioridade = dto.Prioridade,
                 Status = StatusChamado.Novo,
-                UsuarioId = dto.UsuarioId,
-                ResponsavelId = null,
-                DataAbertura = DateTime.UtcNow,
+                DataCriacao = DateTime.UtcNow,
+                ResponsavelId = dto.ResponsavelId,
+                DataAtualizacao = DateTime.UtcNow,
             };
 
             await _context.Chamados.AddAsync(chamado);
@@ -50,11 +50,7 @@ public class ChamadoService : IChamadoService
                  CategoriaId = c.CategoriaId,
                  Prioridade = c.Prioridade,
                  Status = c.Status,
-                 UsuarioId = c.UsuarioId,
-                 DataAbertura = c.DataAbertura,
                  DataAtualizacao = c.DataAtualizacao,
-                 DataResolucao = c.DataResolucao,
-                 DataFechamento = c.DataFechamento
              })
              .ToListAsync();
     }
@@ -62,7 +58,7 @@ public class ChamadoService : IChamadoService
     public async Task<ListarChamadosDto?> BuscarChamado(int id)
     {
         return await _context.Chamados
-           .Where(c => c.Id == id)
+           .Where(c => c.IdChamado == id)
            .Select(c => new ListarChamadosDto
            {
                Titulo = c.Titulo,
@@ -70,18 +66,14 @@ public class ChamadoService : IChamadoService
                CategoriaId = c.CategoriaId,
                Prioridade = c.Prioridade,
                Status = c.Status,
-               UsuarioId = c.UsuarioId,
-               DataAbertura = c.DataAbertura,
                DataAtualizacao = c.DataAtualizacao,
-               DataResolucao = c.DataResolucao,
-               DataFechamento = c.DataFechamento
            })
            .FirstOrDefaultAsync();
     }
 
     public async Task<ChamadoDto?> AtualizarAsync(int id, AtualizarChamadoDto dto)
     {
-        var chamado = await _context.Set<Chamado>().FirstOrDefaultAsync(x => x.Id == id);
+        var chamado = await _context.Set<Chamado>().FirstOrDefaultAsync(x => x.IdChamado == id);
 
         if (chamado == null)
             return null;
@@ -103,7 +95,7 @@ public class ChamadoService : IChamadoService
 
     public async Task<bool> ExcluirAsync(int id)
     {
-        var chamado = await _context.Chamados.FirstOrDefaultAsync(x => x.Id == id);
+        var chamado = await _context.Chamados.FirstOrDefaultAsync(x => x.IdChamado == id);
 
         if(chamado == null)
             return false;

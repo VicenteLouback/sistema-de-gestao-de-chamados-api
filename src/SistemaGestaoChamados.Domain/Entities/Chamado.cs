@@ -4,25 +4,16 @@ namespace SistemaGestaoChamados.Domain.Entities
 {
     public class Chamado
     {
-        public int Id { get; set; }
+        public int IdChamado { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
         public PrioridadeChamado Prioridade { get; set; }
         public StatusChamado Status { get; set; }
-
-        public DateTime DataAbertura { get; set; } = DateTime.UtcNow;
-        public DateTime? DataAtualizacao { get; set; }
-        public DateTime? DataResolucao { get; set; }
-        public DateTime? DataFechamento { get; set; }
-
-        public int CategoriaId { get; set; }
-        public Categoria? Categoria { get; set; }
-
-        public int UsuarioId { get; set; }
-        public Usuario? Usuario { get; set; }
-
+        public int SolicitanteId { get; set; }
         public int? ResponsavelId { get; set; }
-        public Usuario? Responsavel { get; set; }
+        public int CategoriaId { get; set; }
+        public DateTime DataCriacao { get; set; } = DateTime.Now;
+        public DateTime? DataAtualizacao { get; set; }
     }
 }
 

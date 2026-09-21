@@ -2,16 +2,13 @@
 {
     public class Usuario
     {
-        public int Id { get; set; }
+        public int IdUsuario { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string SenhaHash { get; set; } = string.Empty;
+        public string Perfil { get; set; } = string.Empty;
         public bool Ativo { get; set; } = true;
-        public DateTime DataCadastro { get; set; } = DateTime.UtcNow;
-        public DateTime? DataAtualizacao { get; set; }
-
-        public int PerfilId { get; set; }
-        public Perfil? Perfil { get; set; }
+        public DateTime DataCriacao { get; set; } = DateTime.Now;
     }
 }
 

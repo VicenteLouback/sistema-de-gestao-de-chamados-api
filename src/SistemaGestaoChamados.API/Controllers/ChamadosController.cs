@@ -23,7 +23,7 @@ namespace SistemaGestaoChamados.API.Controllers
 
             return Ok(chamado);
         }
-
+        
         [HttpGet("listar-chamados")]
         public async Task<IActionResult> Get()
         {

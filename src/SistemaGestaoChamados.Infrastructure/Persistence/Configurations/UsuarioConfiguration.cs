@@ -8,30 +8,15 @@ public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
 {
     public void Configure(EntityTypeBuilder<Usuario> builder)
     {
-        builder.ToTable("Usuario");
+        builder.ToTable("Usuarios");
 
-        builder.HasKey(u => u.Id);
+        builder.HasKey(u => u.IdUsuario);
+        builder.Property(u => u.Nome).HasColumnName("Nome").IsRequired();
+        builder.Property(u => u.Email).HasColumnName("Email").IsRequired();
+        builder.Property(u => u.SenhaHash).HasColumnName("SenhaHash").IsRequired();
+        builder.Property(u => u.Perfil).HasColumnName("Perfil").IsRequired();
+        builder.Property(u => u.Ativo).HasColumnName("Ativo").IsRequired();
+        builder.Property(u => u.DataCriacao).HasColumnName("DataCriacao").IsRequired();
 
-        builder.Property(u => u.Nome)
-            .IsRequired()
-            .HasMaxLength(150);
-
-        builder.Property(u => u.Email)
-            .IsRequired()
-            .HasMaxLength(150);
-
-        builder.Property(u => u.SenhaHash)
-            .IsRequired()
-            .HasMaxLength(255);
-
-        builder.Property(u => u.PerfilId).IsRequired();
-        builder.Property(u => u.Ativo).IsRequired();
-        builder.Property(u => u.DataCadastro).IsRequired();
-        builder.Property(u => u.DataAtualizacao).IsRequired(false);
-
-        builder.HasOne(u => u.Perfil)
-            .WithMany(p => p.Usuarios)
-            .HasForeignKey(u => u.PerfilId)
-            .OnDelete(DeleteBehavior.Restrict);
     }
 }

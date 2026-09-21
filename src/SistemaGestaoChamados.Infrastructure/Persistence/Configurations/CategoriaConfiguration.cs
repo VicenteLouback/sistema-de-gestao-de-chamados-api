@@ -8,12 +8,12 @@ namespace SistemaGestaoChamados.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Categoria> builder)
         {
-            builder.ToTable("Categoria");
+            builder.ToTable("Categorias");
 
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Nome)
-                .IsRequired()
-                .HasMaxLength(100);
+            builder.HasKey(c => c.IdCategoria);
+            builder.Property(c => c.Nome).HasColumnName("Nome").IsRequired();
+            builder.Property(c => c.Ativa).HasColumnName("Ativa").IsRequired();
+            builder.Property(c => c.DataCadastro).HasColumnName("DataCadastro").IsRequired();
         }
     }
 }

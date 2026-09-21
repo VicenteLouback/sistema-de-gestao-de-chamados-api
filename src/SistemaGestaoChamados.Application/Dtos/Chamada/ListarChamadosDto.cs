@@ -15,8 +15,8 @@ namespace SistemaGestaoChamados.Application.Dtos.Chamada
         public Usuario? Usuario { get; set; }
         public Guid? AtendenteId { get; set; }
         public Usuario? Atendente { get; set; }
-        public DateTime DataAbertura { get; set; }
-        public DateTime? DataAtualizacao { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataAtualizacao { get; set; } = DateTime.UtcNow;
         public DateTime? DataResolucao { get; set; }
         public DateTime? DataFechamento { get; set; }
     }

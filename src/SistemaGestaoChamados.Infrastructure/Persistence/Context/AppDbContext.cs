@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SistemaGestaoChamados.Domain.Entitie;
 using SistemaGestaoChamados.Domain.Entities;
 
 
@@ -23,23 +22,18 @@ namespace SistemaGestaoChamados.Infrastructure.Persistence.Context
         public DbSet<Usuario> Usuario => Set<Usuario>();
         public DbSet<Chamado> Chamados => Set<Chamado>();
         public DbSet<Categoria> Categorias => Set<Categoria>();
-        public DbSet<Perfil> Perfis => Set<Perfil>();
         public DbSet<InteracaoChamado> InteracoesChamados => Set<InteracaoChamado>();
-        public DbSet<HistoricoChamado> HistoricosChamados => Set<HistoricoChamado>();
-        public DbSet<Permissao> Permissoes => Set<Permissao>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
-            modelBuilder.Entity<Chamado>().ToTable("Chamado");
-            modelBuilder.Entity<Usuario>().ToTable("Usuario");
-            modelBuilder.Entity<Categoria>().ToTable("Categoria");
-            modelBuilder.Entity<Perfil>().ToTable("Perfil");
-            modelBuilder.Entity<InteracaoChamado>().ToTable("InteracaoChamado");
-            modelBuilder.Entity<HistoricoChamado>().ToTable("HistoricoChamado");
-            modelBuilder.Entity<Permissao>().ToTable("Permissao");
+            modelBuilder.Entity<Chamado>().ToTable("Chamados");
+            modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+            modelBuilder.Entity<Categoria>().ToTable("Categorias");
+            modelBuilder.Entity<InteracaoChamado>().ToTable("InteracoesChamados");
+
         }
     }
 }
